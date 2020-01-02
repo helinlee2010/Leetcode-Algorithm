@@ -1,3 +1,31 @@
+(1)Iteratvie method
+Time Complexity: O(N)   Space Complexity: 1
+
+class Node{
+  int val;
+  Node next;
+  Node (int x) {x = val};
+}
+  
+class IterativeSolution{
+  public static Node reverse(Node curr){
+    Node prev= null;
+    while (curr!= null) {
+      //Store the next node of current node
+      Node nextNode = curr.next;
+      //Change pointers, where reversing actually happens
+      curr.next = prev;
+      //Advance two pointers: prev & curr
+      prev = curr;
+      curr = nextNode;
+    }
+    //new head at the end when reversing is done will be prev
+    return prev;
+  }
+     
+    ...... other stuffs are the same as section (2)
+ }
+ 
 
 (2) Recursive method
 Time Complexity: O(N)   Space Complexity: O(N)
@@ -38,7 +66,6 @@ class RecursiveSolution{
         System.out.print("\n");
         System.out.print("Reversed list:");
         printList(reverse(list1));
-
     }
     
   }
