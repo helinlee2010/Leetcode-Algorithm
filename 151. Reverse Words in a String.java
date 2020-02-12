@@ -22,7 +22,7 @@ Input string may contain leading or trailing spaces. However, your reversed stri
 
 	
 //Reference(String Methods)
-// charAt(), trim()
+// charAt(), trim(), all white space "\\s+"
 //Stringbuilder instance method: .toString() , .append()
 
 public class Solution {
