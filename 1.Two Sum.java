@@ -6,11 +6,11 @@ Example:
 Given nums = [2, 7, 11, 15], target = 9,
 Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
 
-mport java.util.HashMap;
+import java.util.HashMap;
 import java.util.Map;
 
 //Using hash map to solve
-
+//reference (hashmap methods): .containsKey()   &  .getOrDefault()  &  .put()
 public class Solution {
     public static void main(String[] args) throws Exception {
 	    int [] input = new int[] {1,7,11,15};
@@ -23,7 +23,7 @@ public class Solution {
         //Create a hash map indicates the visited numbers and their indices
         Map<Integer, Integer> visitedNum = new HashMap<>();
         for (int i=0; i<arr.length; i++){
-            int delta = target - arr[i];
+            int delta = target - arr[i]; //the difference between target number and current visiting number
             if(visitedNum.containsKey(delta)){
                 return new int[] {i, visitedNum.getOrDefault(delta, -1)};
             }
