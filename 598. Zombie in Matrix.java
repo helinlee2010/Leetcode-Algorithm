@@ -5,9 +5,10 @@ https://aonecode.com/amazon-online-assessment-zombie-matrix
 	matrix, a 2D integer array where a[i][j] = 1 represents a zombie on the cell and a[i][j] = 0 represents a human on the cell.
 	• Output:
 	Return an integer represent how many days does it take to infect all humans.
-  Return -1 if no zombie exists.
+    Return -1 if no zombie exists.
 
-
+// BFS Solution
+	  
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -26,7 +27,7 @@ public class Solution {
 		
 		Queue<int[]> queue = new LinkedList<>();
 		
-		int humanCount = 0;
+		int humanCount= 0;
 		
 		for(int i=0; i<rows; i++){
 		    for (int j=0; j<cols; j++){
@@ -40,17 +41,20 @@ public class Solution {
 		}
 		
 		int day = 0;
+		
 		while (!queue.isEmpty()){
 		   int size = queue.size();
 		   for(int i=0; i<size; i++){
 		       int[] curr = queue.poll();
+		       // Expand to its neighbor in 4 directions
 		       for (int[] dir: dirs){
-		           int neiX = curr[0] + dir[0];
+		           // new neighbor x y coordinate
+			   int neiX = curr[0] + dir[0];
 		           int neiY = curr[1] + dir[1];
 		           if (inBound(matrix, neiX, neiY) && matrix[neiX][neiY] == 0){
-    		           matrix[neiX][neiY] = 1;
-    		           queue.offer(new int[]{neiX, neiY});
-    		           humanCount--;
+				   matrix[neiX][neiY] = 1;
+				   queue.offer(new int[]{neiX, neiY});
+				   humanCount--;
 		           }
 		       }
 		       
