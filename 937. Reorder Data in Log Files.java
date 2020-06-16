@@ -24,8 +24,6 @@ Constraints:
 3 <= logs[i].length <= 100
 logs[i] is guaranteed to have an identifier, and a word after the identifier. **/
 
-
-
 class Solution {
     public String[] reorderLogFiles(String[] logs) {
         Comparator<String> myComp = new Comparator<>(){
