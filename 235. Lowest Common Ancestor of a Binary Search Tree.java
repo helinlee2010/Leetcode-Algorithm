@@ -10,7 +10,24 @@ https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
  * }
  */
 
-// Recursion 
+// Recursion 1 (make use of the nature of Binary Search Tree: all val to the left is > root)
+// Fast
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q){
+        // If both targets lies in left subtree, recursively search left subtree
+        if( p.val > root.val && q.val > root.val ){
+            // Don't forget the return keyword
+            // need to return the result of recursive call
+            return lowestCommonAncestor(root.right, p, q);
+        }else if( p.val<root.val && q.val<root.val ){
+            return lowestCommonAncestor(root.left, p, q);
+        }
+        // Otherwise (either > < one on each side, >=, <=)
+        return root;
+    }
+}
+
+// Recursion 2
 // Time: O(N)   Space: O(H) height of the tree
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
