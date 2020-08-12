@@ -14,7 +14,7 @@
  * }
  */
 
-// Recursion, DFS, fast
+// Recursion, DFS, fast O(N), extra space needed for stack (tree height) under the hood
 class Solution {
     public int maxDepth(TreeNode root){
         if(root==null) {return 0;}
@@ -23,7 +23,7 @@ class Solution {
     }
 }
  
-// BFS slower less memory
+// BFS slower, extra space for queue
 class Solution {
     public int maxDepth(TreeNode root) {
         if(root==null){ return 0; }
