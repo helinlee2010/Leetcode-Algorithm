@@ -17,6 +17,9 @@ class Solution {
         }
         
         // Create a Priority Queue with custom comparator
+        
+        // PriorityQueue<String> pq = new PriorityQueue<>((a,b) -> (freq1-freq2));
+        
         PriorityQueue<String> pq = new PriorityQueue<>(new Comparator<String>(){
             @Override
             public int compare(String w1, String w2){
