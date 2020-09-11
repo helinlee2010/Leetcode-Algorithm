@@ -47,3 +47,14 @@ class Solution {
         return depth;
     }
 }
+
+// My second visit, with Recursion helper function
+public static int maxDepth(TreeNode root){
+    if(root==null) return 0;
+    return helper(root, 1);
+}
+private static int helper(TreeNode root, int depth){
+    if(root==null) return depth-1;
+    depth = Math.max(helper(root.left,depth +1), helper(root.right, depth+1));
+    return depth;
+}
