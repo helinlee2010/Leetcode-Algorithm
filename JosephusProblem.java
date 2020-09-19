@@ -5,7 +5,38 @@ C E
 C
 At the end, return C
 
-//Using Array 
+// 1. Using LinkedList
+public static void josephus(char[] charArr, int steps){
+	LinkedList<Character> list = new LinkedList<>();
+	for(char ch: charArr){
+		list.add(ch);
+	}
+	
+	int killer = 0;
+	int total = list.size();
+	
+	while(total > 1){
+		int killed = killedIdx(total, killer, steps);
+		list.remove(killed);
+		System.out.println(list.toString());
+		killer = killed + 1;
+		total = list.size(); 
+	}
+}
+
+private static int killedIdx(int total, int killerIdx, int steps){
+	if(total == 1) return -1; // winner, no one should be killed
+	return (killerIdx + steps - 1)%total; 
+}
+
+public static void main(String[] args) {
+	char[] input = {'A', 'B','C', 'D', 'E'};
+	josephus(input, 2);
+}
+
+
+
+// 2. Using Array, to find the final winner only
 
 public static char josephus(char[] input, int steps){
 	int len = input.length;
