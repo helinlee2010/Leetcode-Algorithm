@@ -30,3 +30,26 @@ class Solution {
         System.out.println(maxProfit(stock));
     }
 }
+
+// O(N)
+public int maxProfit(int[] prices) {
+	// Corner case
+	if(prices == null || prices.length<=1) return 0;
+	
+	int min = prices[0];
+	int profit = 0;
+	
+	for(int i=1; i<prices.length; i++){
+		int curr = prices[i];
+		
+		if(curr > min){
+		
+			profit = Math.max(profit, curr-min);
+			
+		}else{ //curr<=min, update the min
+		
+			min = curr;
+		}
+	}
+	return profit;
+}
