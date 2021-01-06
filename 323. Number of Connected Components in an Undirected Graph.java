@@ -30,19 +30,19 @@ public int countComponents(int n, int[][] edges){
         unique.add(find(i,parents));
     }
     return unique.size();
-	}
+}
 	
-	private void union(int node1, int node2, int[] parents){
-      int parent1 = find(node1, parents);
-      int parent2 = find(node2, parents);
-      parents[node1] = parent2;
-	}
+private void union(int node1, int node2, int[] parents){
+	int parent1 = find(node1, parents);
+	int parent2 = find(node2, parents);
+	parents[node1] = parent2;
+}
 	
-	// Find w/ Path compression
-	private int find(int node, int[] parents){
-      if(parents[node] == node) return node;
+// Find w/ Path compression
+private int find(int node, int[] parents){
+	if(parents[node] == node) return node;
 
-      parents[node] = find(parent[node], parents);
-      return parents[node];
-	}
+	parents[node] = find(parent[node], parents);
+	return parents[node];
+}
 
