@@ -1,6 +1,6 @@
 // Directed Graph, DFS
 
-public boolean canFinish(int numCourses, int[][] prerequisites) {
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
         int count =0;
         Map<Integer, List<Integer>> map = new HashMap<>();
         for(int[] pre : prerequisites){
