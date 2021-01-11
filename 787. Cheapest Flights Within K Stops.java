@@ -1,4 +1,6 @@
-public int findCheapestPrice(int n, int[][] flights, int src, int dst, int K) {
+   // Dijkstra Algorithm
+
+    public int findCheapestPrice(int n, int[][] flights, int src, int dst, int K) {
         // Build graph: adjacency matrix
         int[][] g = new int[n][n];
         
