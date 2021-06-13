@@ -11,7 +11,8 @@ class Solution {
         return nums;
     };
     
-    private void quickSort(int[] arr, int left, int right){       
+    private void quickSort(int[] arr, int left, int right){
+        /** Important! Check if left < right!! **/
         if(left< right){
             // Get the final position(index) of first pivot
             int pivotFinalIndex = partition(arr, left, right);
@@ -26,6 +27,9 @@ class Solution {
     }
     
     private int partition(int[] arr,int left,int right){
+        if(left == right){
+            return left; // or return right;
+        }
         // Choose a random pivot
         int pivot = arr[right];
         // Two pointers: i, j
@@ -47,6 +51,10 @@ class Solution {
     }
     
     private void swap(int[] arr, int left, int right){
+        if(left == right){
+            return;
+        }
+        
         int temp = arr[left];
         arr[left] = arr[right];
         arr[right] = temp;
