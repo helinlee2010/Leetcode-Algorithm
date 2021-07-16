@@ -1,4 +1,4 @@
-## Progress on Leetcode Algorithms practice
+## Progress on Algorithm practice
 1. Two Sum
 5. Longest Palindromic Substring
 
